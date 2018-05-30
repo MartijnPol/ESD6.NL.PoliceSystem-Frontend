@@ -1,0 +1,47 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+/** GLOBAL STYLE SHEET **/
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/** MATERIAL COLORS OVERRIDE **/
+
+.mat-fab.mat-warn, .mat-mini-fab.mat-warn, .mat-raised-button.mat-warn {
+  background-color: #C62828;
+}
+
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+  background-color: #1565C0;
+}
+
+.mat-dialog-container {
+  background: #028bce;
+  color: white;
+}
+
+.mat-dialog-title {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.mat-button {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.mat-form-field-infix {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.mat-input-element {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.mat-form-field-should-float .mat-focused {
+  color: white;
+}

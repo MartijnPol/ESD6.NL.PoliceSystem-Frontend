@@ -20,6 +20,15 @@ export class StolenCarService {
   }
 
   /**
+   * Find a StolenCar by it's id
+   * @param {number} id is the id of the specific StolenCar
+   * @returns {any}
+   */
+  findById(id: number) {
+    return this.restAngular.one('StolenCars', id).get();
+  }
+
+  /**
    * Function to create a new StolenCar
    * @param {string} id is the id of the new StolenCar
    * @param {number} manufacturer is the manufacturer of the new CarTracker

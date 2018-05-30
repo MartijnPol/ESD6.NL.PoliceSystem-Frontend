@@ -6,7 +6,7 @@
 
       <div class="d-flex w-100 justify-content-between stolen-car-header">
         <h5 class="mb-1">
-          <a>Car #{{stolenCar.id}}</a>
+          Car #{{stolenCar.id}}
         </h5>
       </div>
       <p class="mb-1">Name: {{stolenCar.name}}</p>
@@ -14,10 +14,11 @@
       <button (click)="openConfirmDialog(stolenCar.id)" mat-mini-fab color="warn">
         <mat-icon>remove</mat-icon>
       </button>
-      <button (click)="openNewRouteDialog(stolenCar.id)" mat-mini-fab color="primary">
+      <button [routerLink]="['/car', stolenCar.id]" (click)="openNewRouteDialog(stolenCar.id)" mat-mini-fab
+              color="primary">
         <mat-icon>near_me</mat-icon>
       </button>
-
+      
     </div>
 
   </div>

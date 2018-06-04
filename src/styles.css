@@ -13,6 +13,10 @@ button:focus {
 
 /** MATERIAL COLORS OVERRIDE **/
 
+.text-danger {
+  color: #C62828;
+}
+
 .mat-fab.mat-warn, .mat-mini-fab.mat-warn, .mat-raised-button.mat-warn {
   background-color: #C62828;
 }
@@ -22,7 +26,7 @@ button:focus {
 }
 
 .mat-dialog-container {
-  background: #028bce;
+  background: #1565C0;
   color: white;
 }
 

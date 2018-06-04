@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Creating a new StolenCar</h1>
+
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.id" placeholder="Identifier">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.manufacturer" placeholder="Manufacturer">
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
+</div>

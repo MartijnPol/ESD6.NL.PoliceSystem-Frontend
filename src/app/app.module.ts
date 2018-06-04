@@ -12,7 +12,9 @@ import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {StolenCarsComponent} from './stolen-cars/stolen-cars.component';
 import {StolenCarService} from '../services/stolen-car.service';
-import { StolenCarDetailComponent } from './stolen-car-detail/stolen-car-detail.component';
+import {StolenCarDetailComponent} from './stolen-car-detail/stolen-car-detail.component';
+import {LoginComponent} from './login/login.component';
+import {NewStolenCarDialogComponent} from './new-stolen-car-dialog/new-stolen-car-dialog.component';
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
@@ -24,8 +26,11 @@ export function RestangularConfigFactory(RestangularProvider) {
     HomeComponent,
     HeaderComponent,
     StolenCarsComponent,
-    StolenCarDetailComponent
+    StolenCarDetailComponent,
+    LoginComponent,
+    NewStolenCarDialogComponent
   ],
+  entryComponents: [NewStolenCarDialogComponent],
   imports: [
     BrowserAnimationsModule,
     MatIconModule,

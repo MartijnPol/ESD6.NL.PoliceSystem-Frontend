@@ -33,8 +33,9 @@ export class StolenCarService {
    * @param {string} id is the id of the new StolenCar
    * @param {number} manufacturer is the manufacturer of the new CarTracker
    */
-  create(id: string, manufacturer: number) {
-    const newCarTracker = {id: id, manufacturer: manufacturer};
+  create(id: string, manufacturer: string) {
+    const newCarTracker = {id: id, manufacturer: manufacturer, isStolen: true};
+    console.log(newCarTracker);
     return this.restAngular.all('StolenCars').post(newCarTracker);
   }
 

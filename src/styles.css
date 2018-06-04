@@ -11,6 +11,10 @@ button:focus {
   outline: 0;
 }
 
+a {
+  color: #1565C0;
+}
+
 /** MATERIAL COLORS OVERRIDE **/
 
 .text-danger {

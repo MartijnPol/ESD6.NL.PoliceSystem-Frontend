@@ -1,25 +1,25 @@
-<div class="col-lg-12" *ngIf="stolenCar">
+<div *ngIf="stolenCar">
 
   <header class="header">
     <h1>{{stolenCar.name}}</h1>
     <div *ngIf="stolenCar.isStolen">
-      <h5 class="text-danger">STOLEN</h5>
+      <h5 class="text-danger font-weight-bold">STOLEN</h5>
     </div>
     <div *ngIf="!stolenCar.isStolen">
-      <h5 class="text-success">RESOLVED</h5>
+      <h5 class="text-success font-weight-bold">RESOLVED</h5>
     </div>
   </header>
 
-  <div class="row profile-row">
+  <app-map [stolenCar]="stolenCar"></app-map>
+
+  <div class="row">
 
     <div class="col-lg-12">
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item">Lorem Ipsum</li>
+        <li class="list-group-item">Dolor Sit Amet?</li>
+        <li class="list-group-item">His name is Thierry Baudet</li>
       </ul>
 
     </div>

@@ -34,13 +34,13 @@ export class StolenCarsComponent {
    */
   openNewStolenCarDialog(): void {
     const dialogRef = this.dialog.open(NewStolenCarDialogComponent, {
-      data: {id: null, manufacturer: null}
+      data: {name: null}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != null) {
-        if (result.id != null && result.manufacturer != null) {
-          this.stolenCarService.create(result.id, result.manufacturer);
+        if (result.name != null) {
+          this.stolenCarService.create(result.name);
         }
       }
     });

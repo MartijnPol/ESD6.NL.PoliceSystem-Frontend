@@ -15,6 +15,8 @@ import {StolenCarService} from '../services/stolen-car.service';
 import {StolenCarDetailComponent} from './stolen-car-detail/stolen-car-detail.component';
 import {LoginComponent} from './login/login.component';
 import {NewStolenCarDialogComponent} from './new-stolen-car-dialog/new-stolen-car-dialog.component';
+import {MapComponent} from './map/map.component';
+import {AgmCoreModule} from '@agm/core';
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
@@ -28,7 +30,8 @@ export function RestangularConfigFactory(RestangularProvider) {
     StolenCarsComponent,
     StolenCarDetailComponent,
     LoginComponent,
-    NewStolenCarDialogComponent
+    NewStolenCarDialogComponent,
+    MapComponent
   ],
   entryComponents: [NewStolenCarDialogComponent],
   imports: [
@@ -51,6 +54,9 @@ export function RestangularConfigFactory(RestangularProvider) {
         component: StolenCarDetailComponent
       }
     ]),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBECZDHHuxDsGezIfvZG2vEtAdLBz1B10I'
+    }),
   ],
   providers: [StolenCarService],
   bootstrap: [AppComponent]

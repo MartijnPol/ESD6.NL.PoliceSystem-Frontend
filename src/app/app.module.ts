@@ -10,11 +10,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
-import {StolenCarsComponent} from './stolen-cars/stolen-cars.component';
-import {StolenCarService} from '../services/stolen-car.service';
-import {StolenCarDetailComponent} from './stolen-car-detail/stolen-car-detail.component';
+import {StolenVehiclesComponent} from './stolen-vehicles/stolen-vehicles.component';
+import {StolenVehicleService} from '../services/stolen-vehicle.service';
+import {StolenVehicleDetailComponent} from './stolen-vehicle-detail/stolen-vehicle-detail.component';
 import {LoginComponent} from './login/login.component';
-import {NewStolenCarDialogComponent} from './new-stolen-car-dialog/new-stolen-car-dialog.component';
+import {NewStolenVehicleDialogComponent} from './new-stolen-vehicle-dialog/new-stolen-vehicle-dialog.component';
 import {MapComponent} from './map/map.component';
 import {AgmCoreModule} from '@agm/core';
 
@@ -27,13 +27,13 @@ export function RestangularConfigFactory(RestangularProvider) {
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    StolenCarsComponent,
-    StolenCarDetailComponent,
+    StolenVehiclesComponent,
+    StolenVehicleDetailComponent,
     LoginComponent,
-    NewStolenCarDialogComponent,
+    NewStolenVehicleDialogComponent,
     MapComponent
   ],
-  entryComponents: [NewStolenCarDialogComponent],
+  entryComponents: [NewStolenVehicleDialogComponent],
   imports: [
     BrowserAnimationsModule,
     MatIconModule,
@@ -51,14 +51,14 @@ export function RestangularConfigFactory(RestangularProvider) {
       },
       {
         path: 'car/:id',
-        component: StolenCarDetailComponent
+        component: StolenVehicleDetailComponent
       }
     ]),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBECZDHHuxDsGezIfvZG2vEtAdLBz1B10I'
     }),
   ],
-  providers: [StolenCarService],
+  providers: [StolenVehicleService],
   bootstrap: [AppComponent]
 })
 

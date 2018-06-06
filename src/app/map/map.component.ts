@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {StolenCar} from '../../models/stolen-car';
+import {StolenVehicle} from '../../models/stolen-vehicle';
 import {Location} from '../../models/location';
 
 @Component({
@@ -9,7 +9,7 @@ import {Location} from '../../models/location';
 })
 export class MapComponent {
 
-  @Input() stolenCar: StolenCar;
+  @Input() stolenVehicle: StolenVehicle;
   centerLocation = new Location(52.132633, 5.291266);
   centerZoom = 7;
 

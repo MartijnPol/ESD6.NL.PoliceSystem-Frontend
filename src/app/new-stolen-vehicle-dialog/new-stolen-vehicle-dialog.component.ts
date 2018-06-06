@@ -3,17 +3,17 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-new-stolen-car-dialog',
-  templateUrl: './new-stolen-car-dialog.component.html',
-  styleUrls: ['./new-stolen-car-dialog.component.css']
+  templateUrl: './new-stolen-vehicle-dialog.component.html',
+  styleUrls: ['./new-stolen-vehicle-dialog.component.css']
 })
-export class NewStolenCarDialogComponent {
+export class NewStolenVehicleDialogComponent {
 
   /**
    * Constructor, btw.. water is wet and the sun is hot.
-   * @param {MatDialogRef<NewStolenCarDialogComponent>} dialogRef
+   * @param {MatDialogRef<NewStolenVehicleDialogComponent>} dialogRef
    * @param data
    */
-  constructor(public dialogRef: MatDialogRef<NewStolenCarDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(public dialogRef: MatDialogRef<NewStolenVehicleDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   /**

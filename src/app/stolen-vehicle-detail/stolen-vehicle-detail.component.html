@@ -1,16 +1,16 @@
-<div *ngIf="stolenCar">
+<div *ngIf="stolenVehicle">
 
   <header class="header">
-    <h1>{{stolenCar.name}}</h1>
-    <div *ngIf="stolenCar.isStolen">
+    <h1>{{stolenVehicle.licensePlate}}</h1>
+    <div *ngIf="stolenVehicle.isStolen">
       <h5 class="text-danger font-weight-bold">STOLEN</h5>
     </div>
-    <div *ngIf="!stolenCar.isStolen">
+    <div *ngIf="!stolenVehicle.isStolen">
       <h5 class="text-success font-weight-bold">RESOLVED</h5>
     </div>
   </header>
 
-  <app-map [stolenCar]="stolenCar"></app-map>
+  <app-map [stolenVehicle]="stolenVehicle"></app-map>
 
   <div class="row">
 

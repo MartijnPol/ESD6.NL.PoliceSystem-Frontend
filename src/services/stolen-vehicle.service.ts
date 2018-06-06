@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Restangular} from 'ngx-restangular';
 
 @Injectable()
-export class StolenCarService {
+export class StolenVehicleService {
 
   /**
    * Constructor
@@ -20,8 +20,8 @@ export class StolenCarService {
   }
 
   /**
-   * Find a StolenCar by it's id
-   * @param {number} id is the id of the specific StolenCar
+   * Find a StolenVehicle by it's id
+   * @param {number} id is the id of the specific StolenVehicle
    * @returns {any}
    */
   findById(id: number) {
@@ -29,9 +29,9 @@ export class StolenCarService {
   }
 
   /**
-   * Function to create a new StolenCar
-   * @param {string} id is the id of the new StolenCar
-   * @param {number} name is the name of the StolenCar (TEST PURPOSES)
+   * Function to create a new StolenVehicle
+   * @param {string} id is the id of the new StolenVehicle
+   * @param {number} name is the name of the StolenVehicle (TEST PURPOSES)
    */
   create(name: string) {
     const newStolenCar = {name: name, isStolen: true};

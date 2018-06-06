@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StolenCar} from '../../models/stolen-car';
-import {StolenCarService} from '../../services/stolen-car.service';
+import {StolenVehicle} from '../../models/stolen-vehicle';
+import {StolenVehicleService} from '../../services/stolen-vehicle.service';
 
 @Component({
   selector: 'app-home',
@@ -9,22 +9,25 @@ import {StolenCarService} from '../../services/stolen-car.service';
 })
 export class HomeComponent implements OnInit {
 
-  public stolenCars: StolenCar[] = [];
+  public stolenVehicles: StolenVehicle[] = [];
 
-  constructor(private stolenCarService: StolenCarService) {
+  constructor(private stolenVehicleService: StolenVehicleService) {
   }
 
   /**
-   * Function to refresh the CarTrackers
+   * Function to refresh the StolenVehicles
    */
-  getStolenCars() {
-    this.stolenCarService.findAll().subscribe(stolenCars => {
-      this.stolenCars = stolenCars;
+  getStolenVehicles() {
+    this.stolenVehicleService.findAll().subscribe(stolenVehicles => {
+      this.stolenVehicles = stolenVehicles;
     });
   }
 
+  /**
+   * On Init
+   */
   ngOnInit() {
-    this.getStolenCars();
+    this.getStolenVehicles();
   }
 
 }

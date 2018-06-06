@@ -13,10 +13,18 @@ export class StolenVehicleService {
   }
 
   /**
-   * Get all StolenCars
+   * Get all StolenVehicles
    */
   findAll() {
     return this.restAngular.all('StolenCars').getList();
+  }
+
+  /**
+   * Get all StolenVehicles based on 'stolen' status
+   */
+  findAllBasedOnStatus(stolen: boolean) {
+    const params = {isStolen: stolen};
+    return this.restAngular.all('StolenCars').customGETLIST('', params);
   }
 
   /**

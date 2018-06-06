@@ -17,6 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {NewStolenVehicleDialogComponent} from './new-stolen-vehicle-dialog/new-stolen-vehicle-dialog.component';
 import {MapComponent} from './map/map.component';
 import {AgmCoreModule} from '@agm/core';
+import {OverviewComponent} from './overview/overview.component';
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
@@ -31,7 +32,8 @@ export function RestangularConfigFactory(RestangularProvider) {
     StolenVehicleDetailComponent,
     LoginComponent,
     NewStolenVehicleDialogComponent,
-    MapComponent
+    MapComponent,
+    OverviewComponent
   ],
   entryComponents: [NewStolenVehicleDialogComponent],
   imports: [
@@ -48,6 +50,10 @@ export function RestangularConfigFactory(RestangularProvider) {
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'overview',
+        component: OverviewComponent
       },
       {
         path: 'car/:id',

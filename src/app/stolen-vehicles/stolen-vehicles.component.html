@@ -8,7 +8,12 @@
         <h5><a [routerLink]="['/car', stolenVehicle.id]" class="mb-1">Car #{{stolenVehicle.id}}</a></h5>
       </div>
       <p class="mb-1">License plate: {{stolenVehicle.licensePlate}}</p>
-      <p class="mb-1">Stolen: {{stolenVehicle.isStolen}}</p>
+      <div *ngIf="stolenVehicle.isStolen">
+        <p class="mb-1">Status: <span class="text-danger font-weight-bold">STOLEN</span></p>
+      </div>
+      <div *ngIf="!stolenVehicle.isStolen">
+        <p class="mb-1">Status: <span class="text-success font-weight-bold">RESOLVED</span></p>
+      </div>
       <hr>
       <button (click)="openConfirmDialog(stolenVehicle.id)" mat-mini-fab color="warn">
         <mat-icon>remove</mat-icon>

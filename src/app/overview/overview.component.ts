@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {StolenVehicle} from '../../models/stolen-vehicle';
 import {StolenVehicleService} from '../../services/stolen-vehicle.service';
+import {StolenVehicle} from '../../models/stolen-vehicle';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-overview',
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.css']
 })
-export class HomeComponent implements OnInit {
+export class OverviewComponent implements OnInit {
 
   public stolenVehicles: StolenVehicle[] = [];
 
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
    * Function to refresh the StolenVehicles
    */
   getStolenVehicles() {
-    this.stolenVehicleService.findAllBasedOnStatus(true).subscribe(stolenVehicles => {
+    this.stolenVehicleService.findAll().subscribe(stolenVehicles => {
       this.stolenVehicles = stolenVehicles;
     });
   }

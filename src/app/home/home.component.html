@@ -1,3 +1,11 @@
 <div *ngIf="stolenVehicles" class="col-lg-12">
+
+  <mat-radio-group (change)="refreshStolenVehicles()" [(ngModel)]="isStolen">
+    <mat-radio-button class="example-margin" [value]="true">Stolen</mat-radio-button>
+    <mat-radio-button class="example-margin" [value]="false">Resolved</mat-radio-button>
+    <mat-radio-button class="example-margin" [value]="null">All</mat-radio-button>
+  </mat-radio-group>
+
   <app-stolen-vehicles [stolenVehicles]="stolenVehicles"></app-stolen-vehicles>
+
 </div>

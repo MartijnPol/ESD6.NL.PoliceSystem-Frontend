@@ -11,7 +11,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatSelectModule,
-  MatOptionModule
+  MatOptionModule, MatRadioModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -54,6 +54,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
+    MatRadioModule,
     MatFormFieldModule,
     MatButtonModule,
     BrowserModule,

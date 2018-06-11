@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {StolenVehicleService} from '../../services/stolen-vehicle.service';
+import {Component, Input} from '@angular/core';
 import {StolenVehicle} from '../../models/stolen-vehicle';
 
 @Component({
@@ -7,27 +6,11 @@ import {StolenVehicle} from '../../models/stolen-vehicle';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css']
 })
-export class OverviewComponent implements OnInit {
+export class OverviewComponent {
 
-  public stolenVehicles: StolenVehicle[] = [];
+  @Input() stolenVehicles: StolenVehicle[] = [];
 
-  constructor(private stolenVehicleService: StolenVehicleService) {
-  }
-
-  /**
-   * Function to refresh the StolenVehicles
-   */
-  getStolenVehicles() {
-    this.stolenVehicleService.findAll().subscribe(stolenVehicles => {
-      this.stolenVehicles = stolenVehicles;
-    });
-  }
-
-  /**
-   * On Init
-   */
-  ngOnInit() {
-    this.getStolenVehicles();
+  constructor() {
   }
 
 }

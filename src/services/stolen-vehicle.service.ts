@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Restangular} from 'ngx-restangular';
+import {StolenVehicle} from '../models/stolen-vehicle';
 
 @Injectable()
 export class StolenVehicleService {
@@ -9,7 +10,6 @@ export class StolenVehicleService {
    * @param {Restangular} restAngular
    */
   constructor(private restAngular: Restangular) {
-
   }
 
   /**
@@ -28,6 +28,19 @@ export class StolenVehicleService {
   }
 
   /**
+   * Update a given StolenVehicle
+   * @param {StolenVehicle} stolenVehicle is the StolenVehicle that needs to be updated
+   * @returns {any}
+   */
+  update(stolenVehicle: StolenVehicle) {
+    return this.restAngular.all('StolenCars').customPUT({
+      'id': stolenVehicle.id,
+      'licensePlate': stolenVehicle.licensePlate,
+      'isStolen': stolenVehicle.isStolen
+    });
+  }
+
+  /**
    * Find a StolenVehicle by it's id
    * @param {number} id is the id of the specific StolenVehicle
    * @returns {any}
@@ -38,11 +51,10 @@ export class StolenVehicleService {
 
   /**
    * Function to create a new StolenVehicle
-   * @param {string} id is the id of the new StolenVehicle
-   * @param {number} name is the name of the StolenVehicle (TEST PURPOSES)
+   * @param {string} licensePlate is the licensePlate of the new StolenVehicle
    */
-  create(name: string) {
-    const newStolenCar = {name: name, isStolen: true};
+  create(licensePlate: string) {
+    const newStolenCar = {licensePlate: licensePlate, isStolen: true};
     return this.restAngular.all('StolenCars').post(newStolenCar);
   }
 

@@ -1,15 +1,16 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {StolenVehicle} from '../../models/stolen-vehicle';
 import {MatDialog} from '@angular/material';
 import {StolenVehicleService} from '../../services/stolen-vehicle.service';
 import {NewStolenVehicleDialogComponent} from '../new-stolen-vehicle-dialog/new-stolen-vehicle-dialog.component';
+import {ChangeStatusDialogComponent} from '../change-status-dialog/change-status-dialog.component';
 
 @Component({
   selector: 'app-stolen-vehicles',
   templateUrl: './stolen-vehicles.component.html',
   styleUrls: ['./stolen-vehicles.component.css']
 })
-export class StolenVehiclesComponent {
+export class StolenVehiclesComponent implements OnChanges {
 
   @Input() stolenVehicles: StolenVehicle[];
 
@@ -22,11 +23,19 @@ export class StolenVehiclesComponent {
   }
 
   /**
-   * Function to open the confirm dialog to delete a specific CarTracker
-   * @param id is the id of the CarTracker the user wants to remove
+   * Function to open the ChangeDialog to delete a specific CarTracker
+   * @param stolenVehicle is the StolenVehicle the status needs to be changed for
    */
-  openConfirmDialog(id): void {
+  openChangeStatusDialog(stolenVehicle: StolenVehicle): void {
+    const dialogRef = this.dialog.open(ChangeStatusDialogComponent, {
+      data: {id: stolenVehicle.id, licensePlate: stolenVehicle.licensePlate, isStolen: stolenVehicle.isStolen}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        this.stolenVehicleService.update(result);
+      }
+    });
   }
 
   /**
@@ -44,6 +53,10 @@ export class StolenVehiclesComponent {
         }
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.stolenVehicles = changes.stolenVehicles.currentValue;
   }
 
 }

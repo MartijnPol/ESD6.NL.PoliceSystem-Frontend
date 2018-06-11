@@ -4,7 +4,15 @@ import {RouterModule} from '@angular/router';
 
 import {RestangularModule} from 'ngx-restangular';
 import {FormsModule} from '@angular/forms';
-import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatOptionModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
@@ -18,6 +26,7 @@ import {NewStolenVehicleDialogComponent} from './new-stolen-vehicle-dialog/new-s
 import {MapComponent} from './map/map.component';
 import {AgmCoreModule} from '@agm/core';
 import {OverviewComponent} from './overview/overview.component';
+import {ChangeStatusDialogComponent} from './change-status-dialog/change-status-dialog.component';
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
@@ -33,15 +42,18 @@ export function RestangularConfigFactory(RestangularProvider) {
     LoginComponent,
     NewStolenVehicleDialogComponent,
     MapComponent,
-    OverviewComponent
+    OverviewComponent,
+    ChangeStatusDialogComponent
   ],
-  entryComponents: [NewStolenVehicleDialogComponent],
+  entryComponents: [NewStolenVehicleDialogComponent, ChangeStatusDialogComponent],
   imports: [
     BrowserAnimationsModule,
     MatIconModule,
     MatDialogModule,
     FormsModule,
     MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
     MatFormFieldModule,
     MatButtonModule,
     BrowserModule,

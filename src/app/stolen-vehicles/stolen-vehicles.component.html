@@ -1,11 +1,11 @@
-<div class="list-group">
+<div *ngIf="stolenVehicles" class="list-group">
 
   <div *ngFor="let stolenVehicle of stolenVehicles">
 
     <div class="list-group-item list-group-item-action flex-column align-items-start stolen-car card">
 
       <div class="d-flex w-100 justify-content-between stolen-car-header">
-        <h5><a [routerLink]="['/car', stolenVehicle.id]" class="mb-1">Car #{{stolenVehicle.id}}</a></h5>
+        <h5><a [routerLink]="['/car', stolenVehicle.id]" class="mb-1">Vehicle #{{stolenVehicle.id}}</a></h5>
       </div>
       <p class="mb-1">License plate: {{stolenVehicle.licensePlate}}</p>
       <div *ngIf="stolenVehicle.isStolen">
@@ -15,11 +15,8 @@
         <p class="mb-1">Status: <span class="text-success font-weight-bold">RESOLVED</span></p>
       </div>
       <hr>
-      <button (click)="openConfirmDialog(stolenVehicle.id)" mat-mini-fab color="warn">
-        <mat-icon>remove</mat-icon>
-      </button>
-      <button [routerLink]="['/car', stolenVehicle.id]" mat-mini-fab color="primary">
-        <mat-icon>done</mat-icon>
+      <button (click)="openChangeStatusDialog(stolenVehicle)" mat-mini-fab color="primary">
+        <mat-icon>edit</mat-icon>
       </button>
 
     </div>

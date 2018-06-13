@@ -5,9 +5,9 @@
 
   <div class="radio-button-group">
     <mat-radio-group (change)="refreshStolenVehicles()" [(ngModel)]="isStolen">
-      <mat-radio-button [value]="true">Stolen</mat-radio-button>
-      <mat-radio-button [value]="false">Resolved</mat-radio-button>
-      <mat-radio-button [value]="null">All</mat-radio-button>
+      <mat-radio-button [value]=true>Stolen</mat-radio-button>
+      <mat-radio-button [value]=false>Resolved</mat-radio-button>
+      <mat-radio-button [value]=null>All</mat-radio-button>
     </mat-radio-group>
   </div>
 

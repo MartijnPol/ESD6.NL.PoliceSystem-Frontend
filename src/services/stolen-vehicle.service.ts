@@ -41,6 +41,14 @@ export class StolenVehicleService {
   }
 
   /**
+   * Function to find the owners
+   * @param {string} licensePlate is the licensePlate of the car
+   */
+  findOwnersByLicensePlate(licensePlate: string) {
+    return this.restAngular.all('StolenCars/find/owners').customGET('', {licensePlate: licensePlate});
+  }
+
+  /**
    * Find a StolenVehicle by it's id
    * @param {number} id is the id of the specific StolenVehicle
    * @returns {any}

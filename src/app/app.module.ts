@@ -27,6 +27,7 @@ import {MapComponent} from './map/map.component';
 import {AgmCoreModule} from '@agm/core';
 import {OverviewComponent} from './overview/overview.component';
 import {ChangeStatusDialogComponent} from './change-status-dialog/change-status-dialog.component';
+import {FilterPipeModule} from 'ngx-filter-pipe';
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
@@ -58,6 +59,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     MatFormFieldModule,
     MatButtonModule,
     BrowserModule,
+    FilterPipeModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     RouterModule.forRoot([
       {

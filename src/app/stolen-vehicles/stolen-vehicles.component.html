@@ -1,6 +1,6 @@
 <div *ngIf="stolenVehicles" class="list-group">
 
-  <div *ngFor="let stolenVehicle of stolenVehicles">
+  <div *ngFor="let stolenVehicle of stolenVehicles | filterBy: filterVehicle">
 
     <div class="list-group-item list-group-item-action flex-column align-items-start stolen-car card">
 

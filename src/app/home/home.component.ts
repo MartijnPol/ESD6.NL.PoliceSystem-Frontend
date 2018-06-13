@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StolenVehicle} from '../../models/stolen-vehicle';
 import {StolenVehicleService} from '../../services/stolen-vehicle.service';
 import {WebSocketSubject} from 'rxjs/observable/dom/WebSocketSubject';
@@ -11,7 +11,9 @@ import {WebSocketSubject} from 'rxjs/observable/dom/WebSocketSubject';
 export class HomeComponent implements OnInit {
 
   stolenVehicles: StolenVehicle[];
-  isStolen: boolean = null;
+  isStolen = true;
+  filterVehicle = new StolenVehicle();
+
   private socket: WebSocketSubject<string>;
   private timeOut: any;
 

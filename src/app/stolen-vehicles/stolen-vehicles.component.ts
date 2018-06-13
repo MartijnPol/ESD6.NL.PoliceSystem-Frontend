@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {StolenVehicle} from '../../models/stolen-vehicle';
 import {MatDialog} from '@angular/material';
 import {StolenVehicleService} from '../../services/stolen-vehicle.service';
@@ -10,9 +10,10 @@ import {ChangeStatusDialogComponent} from '../change-status-dialog/change-status
   templateUrl: './stolen-vehicles.component.html',
   styleUrls: ['./stolen-vehicles.component.css']
 })
-export class StolenVehiclesComponent implements OnChanges {
+export class StolenVehiclesComponent {
 
   @Input() stolenVehicles: StolenVehicle[];
+  @Input() filterVehicle: StolenVehicle;
 
   /**
    * Constructor
@@ -53,10 +54,6 @@ export class StolenVehiclesComponent implements OnChanges {
         }
       }
     });
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.stolenVehicles = changes.stolenVehicles.currentValue;
   }
 
 }

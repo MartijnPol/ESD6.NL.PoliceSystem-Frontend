@@ -53,3 +53,7 @@ a {
 .mat-form-field-should-float .mat-focused {
   color: white;
 }
+
+.mat-radio-outer-circle {
+  border-color: #AAB8C2;
+}

@@ -1,11 +1,22 @@
+<div class="jumbotron jumbotron-fluid">
+
+  <h1 class="display-4">Overview</h1>
+  <p class="lead">An overview of all stolen vehicles in the past</p>
+
+  <div class="radio-button-group">
+    <mat-radio-group (change)="refreshStolenVehicles()" [(ngModel)]="isStolen">
+      <mat-radio-button [value]="true">Stolen</mat-radio-button>
+      <mat-radio-button [value]="false">Resolved</mat-radio-button>
+      <mat-radio-button [value]="null">All</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="search-group">
+    <input [(ngModel)]="filterVehicle.licensePlate" class="form-control" placeholder="Search">
+  </div>
+
+</div>
+
 <div *ngIf="stolenVehicles" class="col-lg-12">
-
-  <mat-radio-group (change)="refreshStolenVehicles()" [(ngModel)]="isStolen">
-    <mat-radio-button class="example-margin" [value]="true">Stolen</mat-radio-button>
-    <mat-radio-button class="example-margin" [value]="false">Resolved</mat-radio-button>
-    <mat-radio-button class="example-margin" [value]="null">All</mat-radio-button>
-  </mat-radio-group>
-
-  <app-stolen-vehicles [stolenVehicles]="stolenVehicles"></app-stolen-vehicles>
-
+  <app-stolen-vehicles [stolenVehicles]="stolenVehicles" [filterVehicle]="filterVehicle"></app-stolen-vehicles>
 </div>

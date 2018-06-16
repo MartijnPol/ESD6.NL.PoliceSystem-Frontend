@@ -20,13 +20,7 @@ export class AccountService {
    * @returns {any}
    */
   login(loginModel: LoginModel) {
-    return this.restAngular.all('accounts/login').post(loginModel).subscribe(data => {
-      if (data.isValid) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('username', data.username);
-        this.router.navigate(['/home']);
-      }
-    });
+    return this.restAngular.all('accounts/login').post(loginModel);
   }
 
   /**

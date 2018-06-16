@@ -11,7 +11,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatSelectModule,
-  MatOptionModule, MatRadioModule
+  MatOptionModule, MatRadioModule, MatSnackBar, MatSnackBarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -57,6 +57,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
+    MatSnackBarModule,
     MatRadioModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -88,7 +89,7 @@ export function RestangularConfigFactory(RestangularProvider) {
       apiKey: 'AIzaSyBECZDHHuxDsGezIfvZG2vEtAdLBz1B10I'
     }),
   ],
-  providers: [StolenVehicleService, AccountService, GuardService],
+  providers: [StolenVehicleService, AccountService, GuardService, MatSnackBar],
   bootstrap: [AppComponent]
 })
 

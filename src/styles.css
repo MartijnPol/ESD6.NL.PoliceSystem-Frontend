@@ -20,6 +20,10 @@ a {
 
 /** MATERIAL COLORS OVERRIDE **/
 
+.mat-snack-bar-container {
+  color: #C62828;
+}
+
 .text-danger {
   color: #C62828;
 }

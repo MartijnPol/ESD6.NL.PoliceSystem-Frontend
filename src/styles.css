@@ -5,6 +5,9 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 button:focus {
@@ -32,6 +35,18 @@ a {
 .mat-dialog-container {
   background: #1565C0;
   color: white;
+}
+
+.mat-select-content {
+  background-color: white;
+}
+
+.mat-primary .mat-option {
+  color: black;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #1565C0;
 }
 
 .mat-dialog-title {

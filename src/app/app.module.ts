@@ -64,11 +64,15 @@ export function RestangularConfigFactory(RestangularProvider) {
     RouterModule.forRoot([
       {
         path: '',
-        component: HomeComponent
+        component: LoginComponent
       },
       {
         path: 'overview',
         component: OverviewComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
       },
       {
         path: 'car/:id',

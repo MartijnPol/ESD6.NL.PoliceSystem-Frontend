@@ -16,7 +16,7 @@ export class StolenVehicleService {
    * Get all StolenVehicles
    */
   findAll() {
-    return this.restAngular.all('StolenCars').getList();
+    return this.restAngular.all('stolen-vehicles').getList('', {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 
   /**
@@ -24,7 +24,7 @@ export class StolenVehicleService {
    */
   findAllBasedOnStatus(stolen: boolean) {
     const params = {isStolen: stolen};
-    return this.restAngular.all('StolenCars').customGETLIST('', params);
+    return this.restAngular.all('stolen-vehicles').customGETLIST('', params, {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 
   /**
@@ -33,11 +33,11 @@ export class StolenVehicleService {
    * @returns {any}
    */
   update(stolenVehicle: StolenVehicle) {
-    return this.restAngular.all('StolenCars').customPUT({
+    return this.restAngular.all('stolen-vehicles').customPUT({
       'id': stolenVehicle.id,
       'licensePlate': stolenVehicle.licensePlate,
       'isStolen': stolenVehicle.isStolen
-    });
+    }, '', '', {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 
   /**
@@ -45,7 +45,8 @@ export class StolenVehicleService {
    * @param {string} licensePlate is the licensePlate of the car
    */
   findOwnersByLicensePlate(licensePlate: string) {
-    return this.restAngular.all('StolenCars/find/owners').customGET('', {licensePlate: licensePlate});
+    return this.restAngular.all('stolen-vehicles/find/owners').customGET('', {licensePlate: licensePlate},
+      {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 
   /**
@@ -54,7 +55,7 @@ export class StolenVehicleService {
    * @returns {any}
    */
   findById(id: number) {
-    return this.restAngular.one('StolenCars', id).get();
+    return this.restAngular.one('stolen-vehicles', id).get({}, {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 
   /**
@@ -62,8 +63,8 @@ export class StolenVehicleService {
    * @param {string} licensePlate is the licensePlate of the new StolenVehicle
    */
   create(licensePlate: string) {
-    const newStolenCar = {licensePlate: licensePlate, isStolen: true};
-    return this.restAngular.all('StolenCars').post(newStolenCar);
+    const stolenVehicle = {licensePlate: licensePlate, isStolen: true};
+    return this.restAngular.all('stolen-vehicles').post(stolenVehicle, {}, {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 
 }

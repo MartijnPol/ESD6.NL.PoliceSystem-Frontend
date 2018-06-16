@@ -31,9 +31,9 @@
         <tbody *ngFor="let previousOwner of vehicleOwners.previousOwners">
         <tr>
           <td>{{previousOwner.fullName}}</td>
-          <td>{{previousOwner.ownerSince | date}}</td>
+          <td>{{previousOwner.ownerSince}}</td>
           <td *ngIf="previousOwner.ownerTill == ''">Still owner</td>
-          <td *ngIf="previousOwner.ownerTill != ''">{{previousOwner.ownerTill | date}}</td>
+          <td *ngIf="previousOwner.ownerTill != ''">{{previousOwner.ownerTill}}</td>
         </tr>
         </tbody>
       </table>

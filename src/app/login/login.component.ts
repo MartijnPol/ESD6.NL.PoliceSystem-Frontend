@@ -1,16 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {AccountService} from '../../services/account.service';
+import {LoginModel} from '../../models/login-model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() {
+  loginModel = new LoginModel(null, null);
+
+  constructor(private accountService: AccountService) {
   }
 
-  ngOnInit() {
+  login() {
+    this.accountService.login(this.loginModel).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

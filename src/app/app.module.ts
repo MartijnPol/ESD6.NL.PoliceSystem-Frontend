@@ -28,6 +28,8 @@ import {AgmCoreModule} from '@agm/core';
 import {OverviewComponent} from './overview/overview.component';
 import {ChangeStatusDialogComponent} from './change-status-dialog/change-status-dialog.component';
 import {FilterPipeModule} from 'ngx-filter-pipe';
+import {AccountService} from '../services/account.service';
+import {GuardService} from '../services/guard.service';
 
 export function RestangularConfigFactory(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
@@ -68,22 +70,25 @@ export function RestangularConfigFactory(RestangularProvider) {
       },
       {
         path: 'overview',
-        component: OverviewComponent
+        component: OverviewComponent,
+        canActivate: [GuardService]
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [GuardService]
       },
       {
         path: 'car/:id',
-        component: StolenVehicleDetailComponent
+        component: StolenVehicleDetailComponent,
+        canActivate: [GuardService]
       }
     ]),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBECZDHHuxDsGezIfvZG2vEtAdLBz1B10I'
     }),
   ],
-  providers: [StolenVehicleService],
+  providers: [StolenVehicleService, AccountService, GuardService],
   bootstrap: [AppComponent]
 })
 

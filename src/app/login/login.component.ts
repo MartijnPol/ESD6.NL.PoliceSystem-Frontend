@@ -9,14 +9,19 @@ import {LoginModel} from '../../models/login-model';
 })
 export class LoginComponent {
 
-  loginModel = new LoginModel(null, null);
+  loginModel = new LoginModel('', '');
 
   constructor(private accountService: AccountService) {
   }
 
+  isDisabled() {
+    return this.loginModel.password === '' || this.loginModel.username === '';
+  }
+
   login() {
-    this.accountService.login(this.loginModel).subscribe(data => {
-      console.log(data);
+    this.accountService.login(this.loginModel).subscribe(() => {
+      this.loginModel.password = '';
+      this.loginModel.username = '';
     });
   }
 

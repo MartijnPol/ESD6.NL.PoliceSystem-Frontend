@@ -39,12 +39,13 @@ export class StolenVehicleDetailComponent implements OnInit {
    */
   liveTrackingChanged() {
     if (this.liveTrackingIsEnabled) {
-      this.subscription = Observable.interval(this.updateInterval).subscribe(x => {
+      this.refreshCarTrackerRules(1);
+      this.subscription = Observable.interval(this.updateInterval).subscribe(() => {
         this.refreshCarTrackerRules(1);
       });
     } else {
       this.subscription.unsubscribe();
-      this.refreshCarTrackerRules(10);
+      this.refreshCarTrackerRules(25);
     }
   }
 
@@ -56,7 +57,7 @@ export class StolenVehicleDetailComponent implements OnInit {
         this.stolenVehicleService.findCarByLicensePlate(stolenVehicle.licensePlate).subscribe(vehicle => {
           this.vehicle = vehicle;
 
-          this.stolenVehicleService.findAmountOfRulesByCarTrackerId(this.vehicle.carTrackerId, 10).subscribe(rules => {
+          this.stolenVehicleService.findAmountOfRulesByCarTrackerId(this.vehicle.carTrackerId, 25).subscribe(rules => {
             this.vehicle.carTrackerRules = rules;
           });
 

@@ -12,10 +12,8 @@
     <div *ngIf="!stolenVehicle.isStolen">
       <h5 class="text-success font-weight-bold">RESOLVED</h5>
     </div>
-    <h5>
-      <mat-slide-toggle [(ngModel)]="liveTrackingIsEnabled" (change)="liveTrackingChanged()">Live Tracking
-      </mat-slide-toggle>
-    </h5>
+    <mat-slide-toggle [(ngModel)]="liveTrackingIsEnabled" (change)="liveTrackingChanged()">Live Tracking
+    </mat-slide-toggle>
   </header>
 
   <app-map [rules]="vehicle.carTrackerRules"></app-map>

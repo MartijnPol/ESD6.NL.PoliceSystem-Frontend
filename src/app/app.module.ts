@@ -31,7 +31,7 @@ import {AccountService} from '../services/account.service';
 import {GuardService} from '../services/guard.service';
 
 export function RestangularConfigFactory(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:8080/PoliceSystem-Backend/api');
+  RestangularProvider.setBaseUrl('http://192.168.25.122:9000/PoliceSystem-Backend/api');
 }
 
 @NgModule({

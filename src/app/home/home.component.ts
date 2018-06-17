@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   private timeOut: any;
 
   constructor(private stolenVehicleService: StolenVehicleService) {
-    this.socket = WebSocketSubject.create('ws://localhost:8080/PoliceSystem-Backend/socket');
+    this.socket = WebSocketSubject.create('ws://192.168.25.122:9000/PoliceSystem-Backend/socket');
     this.socket.subscribe(() => this.refreshStolenVehicles());
   }
 

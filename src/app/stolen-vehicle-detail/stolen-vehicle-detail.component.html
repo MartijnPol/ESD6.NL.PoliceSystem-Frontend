@@ -1,11 +1,11 @@
 <!-- HEADER -->
 <app-header></app-header>
 
-<div *ngIf="stolenVehicle && vehicleOwners">
+<div *ngIf="stolenVehicle && vehicle">
 
   <header class="header">
-    <h1>{{vehicleOwners.owner.fullName}}</h1>
-    <h2>{{stolenVehicle.licensePlate}}</h2>
+    <h1>{{vehicle.owner.fullName}}</h1>
+    <h2>{{vehicle.licensePlate}}</h2>
     <div *ngIf="stolenVehicle.isStolen">
       <h5 class="text-danger font-weight-bold">STOLEN</h5>
     </div>
@@ -14,7 +14,9 @@
     </div>
   </header>
 
-  <app-map [stolenVehicle]="stolenVehicle"></app-map>
+  <div *ngIf="vehicle.carTrackerRules">
+    <app-map [rules]="vehicle.carTrackerRules"></app-map>
+  </div>
 
   <div class="row">
 
@@ -28,7 +30,7 @@
           <th scope="col">Owner till</th>
         </tr>
         </thead>
-        <tbody *ngFor="let previousOwner of vehicleOwners.previousOwners">
+        <tbody *ngFor="let previousOwner of vehicle.previousOwners">
         <tr>
           <td>{{previousOwner.fullName}}</td>
           <td>{{previousOwner.ownerSince}}</td>

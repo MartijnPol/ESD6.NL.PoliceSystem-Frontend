@@ -44,8 +44,19 @@ export class StolenVehicleService {
    * Function to find the owners
    * @param {string} licensePlate is the licensePlate of the car
    */
-  findOwnersByLicensePlate(licensePlate: string) {
+  findCarByLicensePlate(licensePlate: string) {
     return this.restAngular.all('stolen-vehicles/find/owners').customGET('', {licensePlate: licensePlate},
+      {Authorization: 'Bearer' + localStorage.getItem('token')});
+  }
+
+  /**
+   * Function to find given amount of rules
+   * @param {string} trackerId is the id of the CarTracker
+   * @param {number} amount the amount of rules that need to be fetched
+   * @returns {any}
+   */
+  findAmountOfRulesByCarTrackerId(trackerId: string, amount: number) {
+    return this.restAngular.all('stolen-vehicles/find/rules').customGET('', {trackerId: trackerId, amount: amount},
       {Authorization: 'Bearer' + localStorage.getItem('token')});
   }
 

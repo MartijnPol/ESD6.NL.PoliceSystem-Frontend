@@ -1,1 +1,16 @@
-<agm-map [latitude]="centerLocation.lat" [longitude]="centerLocation.lng" [zoom]="centerZoom"></agm-map>
+<agm-map [latitude]="rules[0].lat"
+         [longitude]="rules[0].lon" [zoom]="centerZoom">
+
+  <agm-marker *ngFor="let rule of rules"
+              [latitude]="rule.lat"
+              [longitude]="rule.lon"
+              [label]="rule.id.toString()">
+
+    <agm-info-window>
+      <strong>{{rule.date}}</strong>
+    </agm-info-window>
+
+  </agm-marker>
+
+</agm-map>
+

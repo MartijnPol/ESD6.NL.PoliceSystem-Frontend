@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {StolenVehicleService} from '../../services/stolen-vehicle.service';
 import {ActivatedRoute} from '@angular/router';
 import {StolenVehicle} from '../../models/stolen-vehicle';
-import {VehicleOwners} from '../../models/vehicle-owners';
+import {Vehicle} from '../../models/vehicle';
 
 @Component({
   selector: 'app-stolen-car-detail',
@@ -12,7 +12,7 @@ import {VehicleOwners} from '../../models/vehicle-owners';
 export class StolenVehicleDetailComponent implements OnInit {
 
   stolenVehicle: StolenVehicle;
-  vehicleOwners: VehicleOwners;
+  vehicle: Vehicle;
 
   constructor(private route: ActivatedRoute, private stolenVehicleService: StolenVehicleService) {
   }
@@ -22,9 +22,13 @@ export class StolenVehicleDetailComponent implements OnInit {
       this.stolenVehicleService.findById(Number(params.get('id'))).subscribe(stolenVehicle => {
         this.stolenVehicle = stolenVehicle;
 
-        this.stolenVehicleService.findOwnersByLicensePlate(stolenVehicle.licensePlate).subscribe(vehicleOwners => {
-          this.vehicleOwners = vehicleOwners;
-          console.log(this.vehicleOwners);
+        this.stolenVehicleService.findCarByLicensePlate(stolenVehicle.licensePlate).subscribe(vehicle => {
+          this.vehicle = vehicle;
+
+          this.stolenVehicleService.findAmountOfRulesByCarTrackerId(this.vehicle.carTrackerId, 10).subscribe(rules => {
+            this.vehicle.carTrackerRules = rules;
+          });
+
         });
 
       });

@@ -3,7 +3,8 @@
 .bg-light {
   z-index: 1;
   color: white;
-  background: linear-gradient(to right, #1565C0, #C62828) !important;
+  background: #1565C0 !important;
+  /*background: linear-gradient(to right, #1565C0, #C62828) !important;*/
   box-shadow: 0 1px 1px #AAB8C2;
 }
 

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{data.licensePlate}}</h1>
+
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-select placeholder="Change status" [(value)]="data.isStolen">
+      <mat-option value=true>Stolen</mat-option>
+      <mat-option value=false>Resolved</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<div>
+
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
+
+</div>

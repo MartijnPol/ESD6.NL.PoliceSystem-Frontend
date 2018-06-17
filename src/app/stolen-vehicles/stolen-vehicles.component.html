@@ -1,0 +1,30 @@
+<div *ngIf="stolenVehicles" class="list-group">
+
+  <div *ngFor="let stolenVehicle of stolenVehicles | filterBy: filterVehicle">
+
+    <div class="list-group-item list-group-item-action flex-column align-items-start stolen-car card">
+
+      <div class="d-flex w-100 justify-content-between stolen-car-header">
+        <h5><a [routerLink]="['/car', stolenVehicle.id]" class="mb-1">Vehicle #{{stolenVehicle.id}}</a></h5>
+      </div>
+      <p class="mb-1">License plate: {{stolenVehicle.licensePlate}}</p>
+      <div *ngIf="stolenVehicle.isStolen">
+        <p class="mb-1">Status: <span class="text-danger font-weight-bold">STOLEN</span></p>
+      </div>
+      <div *ngIf="!stolenVehicle.isStolen">
+        <p class="mb-1">Status: <span class="text-success font-weight-bold">RESOLVED</span></p>
+      </div>
+      <hr>
+      <button (click)="openChangeStatusDialog(stolenVehicle)" mat-mini-fab color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<button mat-fab color="primary" id="floating-add-fab" (click)="openNewStolenVehicleDialog()">
+  <mat-icon>add</mat-icon>
+</button>

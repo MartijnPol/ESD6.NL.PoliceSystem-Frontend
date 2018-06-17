@@ -1,0 +1,47 @@
+<!-- HEADER -->
+<app-header></app-header>
+
+<div *ngIf="stolenVehicle != null && vehicle != null">
+
+  <header class="header">
+    <h1>{{vehicle.owner.fullName}}</h1>
+    <h2>{{vehicle.licensePlate}}</h2>
+    <div *ngIf="stolenVehicle.isStolen">
+      <h5 class="text-danger font-weight-bold">STOLEN</h5>
+    </div>
+    <div *ngIf="!stolenVehicle.isStolen">
+      <h5 class="text-success font-weight-bold">RESOLVED</h5>
+    </div>
+    <mat-slide-toggle [(ngModel)]="liveTrackingIsEnabled" (change)="liveTrackingChanged()">Live Tracking
+    </mat-slide-toggle>
+  </header>
+
+  <app-map [rules]="vehicle.carTrackerRules"></app-map>
+
+  <div class="row">
+
+    <div class="col-lg-12 table-card">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Owner since</th>
+          <th scope="col">Owner till</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let previousOwner of vehicle.previousOwners">
+        <tr>
+          <td>{{previousOwner.fullName}}</td>
+          <td>{{previousOwner.ownerSince}}</td>
+          <td *ngIf="previousOwner.ownerTill == ''">Still owner</td>
+          <td *ngIf="previousOwner.ownerTill != ''">{{previousOwner.ownerTill}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

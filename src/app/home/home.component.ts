@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {StolenCar} from '../../models/stolen-car';
-import {StolenCarService} from '../../services/stolen-car.service';
+import {StolenVehicle} from '../../models/stolen-vehicle';
+import {StolenVehicleService} from '../../services/stolen-vehicle.service';
+import {WebSocketSubject} from 'rxjs/observable/dom/WebSocketSubject';
 
 @Component({
   selector: 'app-home',
@@ -9,22 +10,37 @@ import {StolenCarService} from '../../services/stolen-car.service';
 })
 export class HomeComponent implements OnInit {
 
-  public stolenCars: StolenCar[] = [];
+  stolenVehicles: StolenVehicle[];
+  isStolen = true;
+  filterVehicle = new StolenVehicle();
 
-  constructor(private stolenCarService: StolenCarService) {
+  private socket: WebSocketSubject<string>;
+  private timeOut: any;
+
+  constructor(private stolenVehicleService: StolenVehicleService) {
+    this.socket = WebSocketSubject.create('ws://localhost:8080/PoliceSystem-Backend/socket');
+    this.socket.subscribe(() => this.refreshStolenVehicles());
   }
 
   /**
    * Function to refresh the CarTrackers
    */
-  getStolenCars() {
-    this.stolenCarService.findAll().subscribe(stolenCars => {
-      this.stolenCars = stolenCars;
-    });
+  refreshStolenVehicles() {
+    this.timeOut = setTimeout(() => {
+      if (this.isStolen == null) {
+        this.stolenVehicleService.findAll().subscribe(vehicles => {
+          this.stolenVehicles = vehicles;
+        });
+      } else {
+        this.stolenVehicleService.findAllBasedOnStatus(this.isStolen).subscribe(vehicles => {
+          this.stolenVehicles = vehicles;
+        });
+      }
+    }, 100);
   }
 
-  ngOnInit() {
-    this.getStolenCars();
+  ngOnInit(): void {
+    this.refreshStolenVehicles();
   }
 
 }

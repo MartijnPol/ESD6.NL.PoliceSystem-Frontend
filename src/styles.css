@@ -5,13 +5,28 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 button:focus {
   outline: 0;
 }
 
+a {
+  color: #1565C0;
+}
+
 /** MATERIAL COLORS OVERRIDE **/
+
+.mat-snack-bar-container {
+  color: #1565C0;
+}
+
+.text-danger {
+  color: #C62828;
+}
 
 .mat-fab.mat-warn, .mat-mini-fab.mat-warn, .mat-raised-button.mat-warn {
   background-color: #C62828;
@@ -21,9 +36,33 @@ button:focus {
   background-color: #1565C0;
 }
 
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #1565C0;
+}
+
+.mat-slide-toggle-bar {
+  background-color: #AAB8C2;
+}
+
+.mat-slide-toggle-thumb {
+  background-color: white !important;
+}
+
 .mat-dialog-container {
-  background: #028bce;
+  background: #1565C0;
   color: white;
+}
+
+.mat-select-content {
+  background-color: white;
+}
+
+.mat-primary .mat-option {
+  color: black;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #1565C0;
 }
 
 .mat-dialog-title {
@@ -44,4 +83,16 @@ button:focus {
 
 .mat-form-field-should-float .mat-focused {
   color: white;
+}
+
+.mat-radio-outer-circle {
+  border-color: #AAB8C2;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #1565C0;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #1565C0;
 }

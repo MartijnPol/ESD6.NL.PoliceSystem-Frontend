@@ -11,7 +11,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatSelectModule,
-  MatOptionModule, MatRadioModule, MatSnackBar, MatSnackBarModule
+  MatOptionModule, MatRadioModule, MatSnackBar, MatSnackBarModule, MatSlideToggleModule, MatSlideToggle
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -25,7 +25,6 @@ import {LoginComponent} from './login/login.component';
 import {NewStolenVehicleDialogComponent} from './new-stolen-vehicle-dialog/new-stolen-vehicle-dialog.component';
 import {MapComponent} from './map/map.component';
 import {AgmCoreModule} from '@agm/core';
-import {OverviewComponent} from './overview/overview.component';
 import {ChangeStatusDialogComponent} from './change-status-dialog/change-status-dialog.component';
 import {FilterPipeModule} from 'ngx-filter-pipe';
 import {AccountService} from '../services/account.service';
@@ -45,7 +44,6 @@ export function RestangularConfigFactory(RestangularProvider) {
     LoginComponent,
     NewStolenVehicleDialogComponent,
     MapComponent,
-    OverviewComponent,
     ChangeStatusDialogComponent
   ],
   entryComponents: [NewStolenVehicleDialogComponent, ChangeStatusDialogComponent],
@@ -56,6 +54,7 @@ export function RestangularConfigFactory(RestangularProvider) {
     FormsModule,
     MatInputModule,
     MatSelectModule,
+    MatSlideToggleModule,
     MatOptionModule,
     MatSnackBarModule,
     MatRadioModule,
@@ -68,11 +67,6 @@ export function RestangularConfigFactory(RestangularProvider) {
       {
         path: '',
         component: LoginComponent
-      },
-      {
-        path: 'overview',
-        component: OverviewComponent,
-        canActivate: [GuardService]
       },
       {
         path: 'home',
@@ -89,7 +83,7 @@ export function RestangularConfigFactory(RestangularProvider) {
       apiKey: 'AIzaSyBECZDHHuxDsGezIfvZG2vEtAdLBz1B10I'
     }),
   ],
-  providers: [StolenVehicleService, AccountService, GuardService, MatSnackBar],
+  providers: [StolenVehicleService, AccountService, GuardService, MatSnackBar, MatSlideToggle],
   bootstrap: [AppComponent]
 })
 

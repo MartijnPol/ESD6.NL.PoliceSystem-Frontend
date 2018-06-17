@@ -1,8 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {StolenVehicle} from '../../models/stolen-vehicle';
-import {Location} from '../../models/location';
-import {Vehicle} from '../../models/vehicle';
 import {CarTrackerRule} from '../../models/car-tracker-rule';
+import {Location} from '../../models/location';
 
 @Component({
   selector: 'app-map',
@@ -12,7 +10,8 @@ import {CarTrackerRule} from '../../models/car-tracker-rule';
 export class MapComponent {
 
   @Input() rules: CarTrackerRule[];
-  centerZoom = 11;
+  centerLocation = new Location(52.132633, 5.291266);
+  centerZoom = 7;
 
   constructor() {
   }

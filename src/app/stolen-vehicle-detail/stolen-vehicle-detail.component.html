@@ -1,7 +1,7 @@
 <!-- HEADER -->
 <app-header></app-header>
 
-<div *ngIf="stolenVehicle && vehicle">
+<div *ngIf="stolenVehicle != null && vehicle != null">
 
   <header class="header">
     <h1>{{vehicle.owner.fullName}}</h1>
@@ -12,11 +12,13 @@
     <div *ngIf="!stolenVehicle.isStolen">
       <h5 class="text-success font-weight-bold">RESOLVED</h5>
     </div>
+    <h5>
+      <mat-slide-toggle [(ngModel)]="liveTrackingIsEnabled" (change)="liveTrackingChanged()">Live Tracking
+      </mat-slide-toggle>
+    </h5>
   </header>
 
-  <div *ngIf="vehicle.carTrackerRules">
-    <app-map [rules]="vehicle.carTrackerRules"></app-map>
-  </div>
+  <app-map [rules]="vehicle.carTrackerRules"></app-map>
 
   <div class="row">
 
